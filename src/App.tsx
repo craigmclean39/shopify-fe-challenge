@@ -1,5 +1,6 @@
-import Feed from './components/Feed';
+import './css/reset.css';
 import './css/styles.css';
+import Feed from './components/Feed';
 
 function App() {
   return <Feed />;
