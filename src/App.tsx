@@ -1,7 +1,7 @@
-import React from 'react';
+import Feed from './components/Feed';
 
 function App() {
-  return <div className='App'>APP</div>;
+  return <Feed />;
 }
 
 export default App;
