@@ -1,14 +1,18 @@
 :root {
-  --background-color: #272640;
+  --background-color: rgb(250, 250, 250);
+  --post-color: white;
+  --font-color: #383838;
+  --border: solid 1px rgb(219, 219, 219);
 
-  --post-color: #1b3a4b;
-
-  --font-color: white;
+  --icon-outline: #383838;
+  --icon-hover: rgb(142, 142, 142);
+  --icon-like: rgb(237, 73, 86);
 }
 
 html {
   background-color: var(--background-color);
   color: var(--font-color);
+  font-family: 'Trispace', sans-serif;
 }
 
 article {
@@ -18,13 +22,67 @@ article {
 
   margin: 2rem 1rem 2rem 1rem;
   background-color: var(--post-color);
+  width: clamp(200px, 90vw, 700px);
+  border: var(--border);
+  border-radius: 4px;
 }
 
 article > header {
-  font-size: 1.5rem;
+  display: flex;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+article > header,
+article > .like-bar,
+article > p,
+article > footer {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+article > p {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 1.2;
+  font-family: 'Roboto';
+  font-weight: 300;
 }
 
 article > img {
-  width: clamp(200px, 90vw, 500px);
+  width: clamp(200px, 90vw, 700px);
   height: auto;
+}
+
+article > footer {
+  min-height: 28px;
+}
+
+article > footer > span {
+  font-style: italic;
+  font-weight: 200;
+  font-size: 0.8rem;
+}
+
+.like-bar {
+  display: flex;
+  width: 100%;
+  padding-top: 6px;
+}
+
+.like-bar__like-icon {
+  fill: var(--icon-outline);
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.like-bar__like-icon:hover {
+  fill: var(--icon-hover);
+}
+.like-bar__like-icon--liked {
+  fill: var(--icon-like);
 }
