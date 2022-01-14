@@ -9,7 +9,7 @@ const Feed = () => {
   const [page, setPage] = useState(0);
   const endDate = useRef(format(new Date(), 'yyyy-LL-dd'));
   const startDate = useRef(
-    format(sub(new Date(), { days: pageLength }), 'yyyy-LL-dd')
+    format(sub(new Date(), { days: pageLength - 1 }), 'yyyy-LL-dd')
   );
   const [loading, setLoading] = useState(true);
   const [apodData, setApodData] = useState<APOD[]>([]);
@@ -35,11 +35,14 @@ const Feed = () => {
   let apodElements = null;
   if (!loading && apodData != null) {
     apodElements = apodData.map((apod) => {
-      return <PictureOfTheDay key={apod.date} data={apod} />;
+      if (apod.media_type === 'image') {
+        return <PictureOfTheDay key={apod.date} data={apod} />;
+      }
+      return null;
     });
   }
 
-  return <div>{apodElements}</div>;
+  return <main>{apodElements}</main>;
 };
 
 export default Feed;

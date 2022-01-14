@@ -10,7 +10,7 @@ const PictureOfTheDay: React.FC<PictureOfTheDayProps> = ({ data }) => {
       <header>{data.title}</header>
       <img src={data.hdurl} alt='' />
       <p>{data.explanation}</p>
-      <footer>{data.copyright}</footer>
+      <footer>{data.copyright ? `© ${data.copyright}` : ''}</footer>
     </article>
   );
 };
