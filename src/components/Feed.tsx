@@ -24,7 +24,7 @@ const Feed = () => {
         },
       });
 
-      setApodData(data.data);
+      setApodData(data.data.reverse());
       setLoading(false);
       console.log(data);
     };
@@ -42,7 +42,7 @@ const Feed = () => {
     });
   }
 
-  return <main>{apodElements}</main>;
+  return <main>{loading ? <div>LOADING</div> : apodElements}</main>;
 };
 
 export default Feed;

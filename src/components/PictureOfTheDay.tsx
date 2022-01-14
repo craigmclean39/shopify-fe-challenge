@@ -1,5 +1,6 @@
 import { APOD } from '../types/apod';
 import LikeBar from './LikeBar';
+import { format } from 'date-fns';
 
 export interface PictureOfTheDayProps {
   data: APOD;
@@ -8,7 +9,14 @@ export interface PictureOfTheDayProps {
 const PictureOfTheDay: React.FC<PictureOfTheDayProps> = ({ data }) => {
   return (
     <article>
-      <header>{data.title}</header>
+      <header>
+        <h2>{data.title}</h2>
+        <p>
+          <time dateTime={data.date}>
+            {format(new Date(data.date), 'MMMM do, yyyy')}
+          </time>
+        </p>
+      </header>
 
       <img src={data.hdurl} alt='' />
 
