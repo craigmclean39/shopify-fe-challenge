@@ -1,9 +1,18 @@
+import { APOD } from '../types/apod';
+
 export interface PictureOfTheDayProps {
-  date: string;
+  data: APOD;
 }
 
-const PictureOfTheDay: React.FC<PictureOfTheDayProps> = ({ date }) => {
-  return <div>{date}</div>;
+const PictureOfTheDay: React.FC<PictureOfTheDayProps> = ({ data }) => {
+  return (
+    <article>
+      <header>{data.title}</header>
+      <img src={data.hdurl} alt='' />
+      <p>{data.explanation}</p>
+      <footer>{data.copyright}</footer>
+    </article>
+  );
 };
 
 export default PictureOfTheDay;

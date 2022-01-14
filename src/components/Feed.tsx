@@ -12,7 +12,7 @@ const Feed = () => {
     format(sub(new Date(), { days: pageLength }), 'yyyy-LL-dd')
   );
   const [loading, setLoading] = useState(true);
-  const [apodData, setApodData] = useState<APOD[] | null>(null);
+  const [apodData, setApodData] = useState<APOD[]>([]);
 
   useEffect(() => {
     const fetchAPOD = async () => {
@@ -35,7 +35,7 @@ const Feed = () => {
   let apodElements = null;
   if (!loading && apodData != null) {
     apodElements = apodData.map((apod) => {
-      return <PictureOfTheDay key={apod.date} date={apod.date} />;
+      return <PictureOfTheDay key={apod.date} data={apod} />;
     });
   }
 
