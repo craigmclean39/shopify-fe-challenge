@@ -22,6 +22,26 @@ body {
   align-items: center;
 }
 
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background-color: var(--post-color);
+  width: 100%;
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.inner-header {
+  width: clamp(200px, 100vw, 900px);
+}
+
 main {
   width: clamp(200px, 100vw, 1024px);
   display: flex;
