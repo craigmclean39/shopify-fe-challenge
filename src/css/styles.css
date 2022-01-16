@@ -40,6 +40,35 @@ header {
 
 .inner-header {
   width: clamp(200px, 100vw, 900px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link-icons {
+  display: flex;
+  align-items: center;
+}
+
+.header-icon {
+  width: 28px;
+  height: 28px;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  fill: var(--icon-outline);
+}
+
+.shopify:hover {
+  fill: #7ab55c;
+}
+
+.nasa {
+  width: 62px;
+  height: 62px;
+}
+
+.nasa:hover {
+  fill: #e03c31;
 }
 
 main {
@@ -118,11 +147,15 @@ article > footer > span {
   padding-top: 6px;
 }
 
-.like-bar__like-icon {
-  fill: var(--icon-outline);
+.like-bar__like-icon,
+.like-bar__like-icon--liked {
   width: 28px;
   height: 28px;
   cursor: pointer;
+}
+
+.like-bar__like-icon {
+  fill: var(--icon-outline);
 }
 
 .like-bar__like-icon:hover {
