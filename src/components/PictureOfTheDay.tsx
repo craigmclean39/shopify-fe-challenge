@@ -1,12 +1,19 @@
 import { APOD } from '../types/apod';
 import LikeBar from './LikeBar';
 import { format } from 'date-fns';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 export interface PictureOfTheDayProps {
   data: APOD;
 }
 
 const PictureOfTheDay: React.FC<PictureOfTheDayProps> = ({ data }) => {
+  const [liked, setLiked] = useLocalStorage(data.date, false);
+
+  const handleClick = () => {
+    setLiked(!liked);
+  };
+
   return (
     <article>
       <header>
@@ -20,7 +27,7 @@ const PictureOfTheDay: React.FC<PictureOfTheDayProps> = ({ data }) => {
 
       <img src={data.hdurl} alt='' />
 
-      <LikeBar liked={true} />
+      <LikeBar liked={liked} handleClick={handleClick} />
 
       <p>{data.explanation}</p>
 
