@@ -28,7 +28,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/craigmclean39/shopify-fe-challenge">
-    <img src="./src/media/spacestagram.png" alt="Logo" style="background-color: white; padding: 1rem">
+    <img src="./src/media/spacestagram.png" alt="Logo">
   </a>
 
 <h3 align="center">Spacestagram - Front End Developer Intern Challenge - Summer 2022</h3>
@@ -39,7 +39,7 @@
     <a href="https://github.com/craigmclean39/shopify-fe-challenge"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/craigmclean39/shopify-fe-challenge">View Demo</a>
+    <a href="https://craigmclean39.github.io/shopify-fe-challenge/">View Demo</a>
     ·
     <a href="https://github.com/craigmclean39/shopify-fe-challenge/issues">Report Bug</a>
     ·
