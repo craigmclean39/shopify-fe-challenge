@@ -1,11 +1,17 @@
 import { APOD } from '../types/apod';
 import LikeBar from './LikeBar';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 export interface PictureOfTheDayProps {
   data: APOD;
 }
+
+//Date returned is in EST
+const formatApodDate = (date: string) => {
+  const dateObj = parseISO(date);
+  return format(dateObj, 'MMMM do, yyyy');
+};
 
 const PictureOfTheDay: React.FC<PictureOfTheDayProps> = ({ data }) => {
   const [liked, setLiked] = useLocalStorage(data.date, false);
@@ -19,9 +25,7 @@ const PictureOfTheDay: React.FC<PictureOfTheDayProps> = ({ data }) => {
       <header>
         <h2>{data.title}</h2>
         <p>
-          <time dateTime={data.date}>
-            {format(new Date(data.date), 'MMMM do, yyyy')}
-          </time>
+          <time dateTime={data.date}>{formatApodDate(data.date)}</time>
         </p>
       </header>
 
