@@ -14,16 +14,20 @@ const Feed = () => {
   const dateRef = useRef(null);
 
   async function fetchAPOD() {
-    const data = await axios.get('https://api.nasa.gov/planetary/apod', {
-      params: {
-        api_key: process.env.REACT_APP_NASA_API,
-        start_date: startDate.current,
-        end_date: endDate.current,
-      },
-    });
+    try {
+      const data = await axios.get('https://api.nasa.gov/planetary/apod', {
+        params: {
+          api_key: process.env.REACT_APP_NASA_API,
+          start_date: startDate.current,
+          end_date: endDate.current,
+        },
+      });
 
-    setApodData(data.data.reverse());
-    setLoading(false);
+      setApodData(data.data.reverse());
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
